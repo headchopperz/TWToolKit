@@ -31,19 +31,23 @@ namespace TWToolKit
         public Form1.VillageBuildings VillageBuild_Defense = new Form1.VillageBuildings();
 
         public class TroopCount {
-            public int Spearman = -1;
-            public int Swordsman = -1;
-            public int Axeman = -1;
-            public int Archer = -1;
-            public int Scout = -1;
-            public int Light_Cavalry = -1;
-            public int Mounted_Archer = -1;
-            public int Heavy_Cavalry = -1;
-            public int Ram = -1;
-            public int Catapult = -1;
-            public int Paladin = -1;
-            public int Noble = -1;
-            public int Militia = -1;
+            public double Spearman = -1;
+            public double Swordsman = -1;
+            public double Axeman = -1;
+            public double Archer = -1;
+            public double Scout = -1;
+            public double Light_Cavalry = -1;
+            public double Mounted_Archer = -1;
+            public double Heavy_Cavalry = -1;
+            public double Ram = -1;
+            public double Catapult = -1;
+            public double Paladin = -1;
+            public double Noble = -1;
+            public double Militia = -1;
+
+            public TroopCount ShallowCopy() {
+                return (TroopCount)this.MemberwiseClone();
+            }
         }
 
         public VillageDesigner()
@@ -229,202 +233,146 @@ namespace TWToolKit
                 Archer_Loss_Ratio = Math.Pow((Offensive_Archer_Strength / Defensive_Archer_Strength), 0.5) / (Defensive_Archer_Strength / Offensive_Archer_Strength);
             }
 
-            double Winning_Spear = 0;
-            double Winning_Sword = 0;
-            double Winning_Axe = 0;
-            double Winning_Ram = 0;
-            double Winning_Cata = 0;
-            double Winning_Paladin = 0;
-            double Winning_Noble = 0;
-            double Winning_LC = 0;
-            double Winning_HC = 0;
-            double Winning_Archer = 0;
-            double Winning_MA = 0;
+            TroopCount tmp_Offense = new TroopCount();
+            TroopCount tmp_Defense = new TroopCount();
 
-            double Loosing_Spear = 0;
-            double Loosing_Sword = 0;
-            double Loosing_Axe = 0;
-            double Loosing_Ram = 0;
-            double Loosing_Cata = 0;
-            double Loosing_Paladin = 0;
-            double Loosing_Noble = 0;
-            double Loosing_LC = 0;
-            double Loosing_HC = 0;
-            double Loosing_Archer = 0;
-            double Loosing_MA = 0;
+            tmp_Offense = TroopCount_Offense.ShallowCopy();
+            tmp_Defense = TroopCount_Defense.ShallowCopy();
 
             if (General_Winner == "Offense") {
-                Winning_Spear = TroopCount_Offense.Spearman;
-                Winning_Sword = TroopCount_Offense.Swordsman;
-                Winning_Axe = TroopCount_Offense.Axeman;
-                Winning_Ram = TroopCount_Offense.Ram;
-                Winning_Cata = TroopCount_Offense.Catapult;
-                Winning_Paladin = TroopCount_Offense.Paladin;
-                Winning_Noble = TroopCount_Offense.Noble;
+                tmp_Offense.Spearman -= TroopCount_Offense.Spearman * General_Loss_Ratio;
+                tmp_Offense.Swordsman -= TroopCount_Offense.Swordsman * General_Loss_Ratio;
+                tmp_Offense.Axeman -= TroopCount_Offense.Axeman * General_Loss_Ratio;
+                tmp_Offense.Ram -= TroopCount_Offense.Ram * General_Loss_Ratio;
+                tmp_Offense.Catapult -= TroopCount_Offense.Catapult * General_Loss_Ratio;
+                tmp_Offense.Paladin -= TroopCount_Offense.Paladin * General_Loss_Ratio;
 
-                Loosing_Spear = TroopCount_Defense.Spearman;
-                Loosing_Sword = TroopCount_Defense.Swordsman;
-                Loosing_Axe = TroopCount_Defense.Axeman;
-                Loosing_Ram = TroopCount_Defense.Ram;
-                Loosing_Cata = TroopCount_Defense.Catapult;
-                Loosing_Paladin = TroopCount_Defense.Paladin;
-                Loosing_Noble = TroopCount_Defense.Noble;
+                tmp_Defense.Spearman -= TroopCount_Defense.Spearman * Offensive_General_Ratio;
+                tmp_Defense.Swordsman -= TroopCount_Defense.Swordsman * Offensive_General_Ratio;
+                tmp_Defense.Axeman -= TroopCount_Defense.Axeman * Offensive_General_Ratio;
+                tmp_Defense.Ram -= TroopCount_Defense.Ram * Offensive_General_Ratio;
+                tmp_Defense.Catapult -= TroopCount_Defense.Catapult * Offensive_General_Ratio;
+                tmp_Defense.Paladin -= TroopCount_Defense.Paladin * Offensive_General_Ratio;
+                tmp_Defense.Noble -= TroopCount_Defense.Noble * Offensive_General_Ratio;
+                tmp_Defense.Archer -= TroopCount_Defense.Archer * Offensive_General_Ratio;
+                tmp_Defense.Mounted_Archer -= TroopCount_Defense.Mounted_Archer * Offensive_General_Ratio;
+                tmp_Defense.Light_Cavalry -= TroopCount_Defense.Light_Cavalry * Offensive_General_Ratio;
+                tmp_Defense.Heavy_Cavalry -= TroopCount_Defense.Heavy_Cavalry * Offensive_General_Ratio;
             } else {
-                Winning_Spear = TroopCount_Defense.Spearman;
-                Winning_Sword = TroopCount_Defense.Swordsman;
-                Winning_Axe = TroopCount_Defense.Axeman;
-                Winning_Ram = TroopCount_Defense.Ram;
-                Winning_Cata = TroopCount_Defense.Catapult;
-                Winning_Paladin = TroopCount_Defense.Paladin;
-                Winning_Noble = TroopCount_Defense.Noble;
+                tmp_Offense.Spearman = 0;
+                tmp_Offense.Swordsman = 0;
+                tmp_Offense.Axeman = 0;
+                tmp_Offense.Ram = 0;
+                tmp_Offense.Catapult = 0;
+                tmp_Offense.Paladin = 0;
 
-                Loosing_Spear = TroopCount_Offense.Spearman;
-                Loosing_Sword = TroopCount_Offense.Swordsman;
-                Loosing_Axe = TroopCount_Offense.Axeman;
-                Loosing_Ram = TroopCount_Offense.Ram;
-                Loosing_Cata = TroopCount_Offense.Catapult;
-                Loosing_Paladin = TroopCount_Offense.Paladin;
-                Loosing_Noble = TroopCount_Offense.Noble;
+                tmp_Defense.Spearman -= TroopCount_Defense.Spearman * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Swordsman -= TroopCount_Defense.Swordsman * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Axeman -= TroopCount_Defense.Axeman * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Ram -= TroopCount_Defense.Ram * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Catapult -= TroopCount_Defense.Catapult * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Paladin -= TroopCount_Defense.Paladin * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Noble -= TroopCount_Defense.Noble * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Archer -= TroopCount_Defense.Archer * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Mounted_Archer -= TroopCount_Defense.Mounted_Archer * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Light_Cavalry -= TroopCount_Defense.Light_Cavalry * Offensive_General_Ratio * General_Loss_Ratio;
+                tmp_Defense.Heavy_Cavalry -= TroopCount_Defense.Heavy_Cavalry * Offensive_General_Ratio * General_Loss_Ratio;
             }
 
             if (Cavalry_Winner == "Offense") {
-                Winning_LC = TroopCount_Offense.Light_Cavalry;
-                Winning_HC = TroopCount_Offense.Heavy_Cavalry;
+                tmp_Offense.Light_Cavalry -= TroopCount_Offense.Light_Cavalry * Cavalry_Loss_Ratio;
+                tmp_Offense.Heavy_Cavalry -= TroopCount_Offense.Heavy_Cavalry * Cavalry_Loss_Ratio;
 
-                Loosing_LC = TroopCount_Defense.Light_Cavalry;
-                Loosing_HC = TroopCount_Defense.Heavy_Cavalry;
+                tmp_Defense.Spearman -= TroopCount_Defense.Spearman * Offensive_Cavalry_Ratio;
+                tmp_Defense.Swordsman -= TroopCount_Defense.Swordsman * Offensive_Cavalry_Ratio;
+                tmp_Defense.Axeman -= TroopCount_Defense.Axeman * Offensive_Cavalry_Ratio;
+                tmp_Defense.Ram -= TroopCount_Defense.Ram * Offensive_Cavalry_Ratio;
+                tmp_Defense.Catapult -= TroopCount_Defense.Catapult * Offensive_Cavalry_Ratio;
+                tmp_Defense.Paladin -= TroopCount_Defense.Paladin * Offensive_Cavalry_Ratio;
+                tmp_Defense.Noble -= TroopCount_Defense.Noble * Offensive_Cavalry_Ratio;
+                tmp_Defense.Archer -= TroopCount_Defense.Archer * Offensive_Cavalry_Ratio;
+                tmp_Defense.Mounted_Archer -= TroopCount_Defense.Mounted_Archer * Offensive_Cavalry_Ratio;
+                tmp_Defense.Light_Cavalry -= TroopCount_Defense.Light_Cavalry * Offensive_Cavalry_Ratio;
+                tmp_Defense.Heavy_Cavalry -= TroopCount_Defense.Heavy_Cavalry * Offensive_Cavalry_Ratio;
             } else {
-                Winning_LC = TroopCount_Defense.Light_Cavalry;
-                Winning_HC = TroopCount_Defense.Heavy_Cavalry;
+                tmp_Offense.Light_Cavalry = 0;
+                tmp_Offense.Heavy_Cavalry = 0;
 
-                Loosing_LC = TroopCount_Offense.Light_Cavalry;
-                Loosing_HC = TroopCount_Offense.Heavy_Cavalry;
+                tmp_Defense.Spearman -= TroopCount_Defense.Spearman * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Swordsman -= TroopCount_Defense.Swordsman * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Axeman -= TroopCount_Defense.Axeman * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Ram -= TroopCount_Defense.Ram * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Catapult -= TroopCount_Defense.Catapult * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Paladin -= TroopCount_Defense.Paladin * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Noble -= TroopCount_Defense.Noble * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Archer -= TroopCount_Defense.Archer * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Mounted_Archer -= TroopCount_Defense.Mounted_Archer * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Light_Cavalry -= TroopCount_Defense.Light_Cavalry * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
+                tmp_Defense.Heavy_Cavalry -= TroopCount_Defense.Heavy_Cavalry * Offensive_Cavalry_Ratio * Cavalry_Loss_Ratio;
             }
 
             if (Archer_Winner == "Offense") {
-                Winning_Archer = TroopCount_Offense.Archer;
-                Winning_MA = TroopCount_Offense.Mounted_Archer;
+                tmp_Offense.Archer -= TroopCount_Offense.Archer * Archer_Loss_Ratio;
+                tmp_Offense.Mounted_Archer -= TroopCount_Offense.Mounted_Archer * Archer_Loss_Ratio;
 
-                Loosing_Archer = TroopCount_Defense.Archer;
-                Loosing_MA = TroopCount_Defense.Mounted_Archer;
+
+                tmp_Defense.Spearman -= TroopCount_Defense.Spearman * Offensive_Archer_Ratio;
+                tmp_Defense.Swordsman -= TroopCount_Defense.Swordsman * Offensive_Archer_Ratio;
+                tmp_Defense.Axeman -= TroopCount_Defense.Axeman * Offensive_Archer_Ratio;
+                tmp_Defense.Ram -= TroopCount_Defense.Ram * Offensive_Archer_Ratio;
+                tmp_Defense.Catapult -= TroopCount_Defense.Catapult * Offensive_Archer_Ratio;
+                tmp_Defense.Paladin -= TroopCount_Defense.Paladin * Offensive_Archer_Ratio;
+                tmp_Defense.Noble -= TroopCount_Defense.Noble * Offensive_Archer_Ratio;
+                tmp_Defense.Archer -= TroopCount_Defense.Archer * Offensive_Archer_Ratio;
+                tmp_Defense.Mounted_Archer -= TroopCount_Defense.Mounted_Archer * Offensive_Archer_Ratio;
+                tmp_Defense.Light_Cavalry -= TroopCount_Defense.Light_Cavalry * Offensive_Archer_Ratio;
+                tmp_Defense.Heavy_Cavalry -= TroopCount_Defense.Heavy_Cavalry * Offensive_Archer_Ratio;
             } else {
-                Winning_Archer = TroopCount_Defense.Archer;
-                Winning_MA = TroopCount_Defense.Mounted_Archer;
+                tmp_Offense.Archer = 0;
+                tmp_Offense.Mounted_Archer = 0;
 
-                Loosing_Archer = TroopCount_Offense.Archer;
-                Loosing_MA = TroopCount_Offense.Mounted_Archer;
-            }
-
-            //General Phase
-            Winning_Spear -= TroopCount_Offense.Spearman * General_Loss_Ratio;
-            Winning_Sword -= TroopCount_Offense.Swordsman * General_Loss_Ratio;
-            Winning_Axe -= TroopCount_Offense.Axeman * General_Loss_Ratio;
-            Winning_Ram -= TroopCount_Offense.Ram * General_Loss_Ratio;
-            Winning_Cata -= TroopCount_Offense.Catapult * General_Loss_Ratio;
-            Winning_Paladin -= TroopCount_Offense.Paladin * General_Loss_Ratio;
-            Winning_Noble -= TroopCount_Offense.Noble * General_Loss_Ratio;
-
-            Loosing_Spear -= TroopCount_Defense.Spearman * Offensive_General_Ratio;
-            Loosing_Sword -= TroopCount_Defense.Swordsman * Offensive_General_Ratio;
-            Loosing_Axe -= TroopCount_Defense.Axeman * Offensive_General_Ratio;
-            Loosing_Ram -= TroopCount_Defense.Ram * Offensive_General_Ratio;
-            Loosing_Cata -= TroopCount_Defense.Catapult * Offensive_General_Ratio;
-            Loosing_Paladin -= TroopCount_Defense.Paladin * Offensive_General_Ratio;
-            Loosing_Noble -= TroopCount_Defense.Noble * Offensive_General_Ratio;
-            Loosing_Archer -= TroopCount_Defense.Archer * Offensive_General_Ratio;
-            Loosing_MA -= TroopCount_Defense.Mounted_Archer * Offensive_General_Ratio;
-            Loosing_LC -= TroopCount_Defense.Light_Cavalry * Offensive_General_Ratio;
-            Loosing_HC -= TroopCount_Defense.Heavy_Cavalry * Offensive_General_Ratio;
-
-            //Cavalry Phase
-            Winning_LC -= TroopCount_Offense.Light_Cavalry * Cavalry_Loss_Ratio;
-            Winning_HC -= TroopCount_Offense.Heavy_Cavalry * Cavalry_Loss_Ratio;
-
-            Loosing_Spear -= TroopCount_Defense.Spearman * Offensive_Cavalry_Ratio;
-            Loosing_Sword -= TroopCount_Defense.Swordsman * Offensive_Cavalry_Ratio;
-            Loosing_Axe -= TroopCount_Defense.Axeman * Offensive_Cavalry_Ratio;
-            Loosing_Ram -= TroopCount_Defense.Ram * Offensive_Cavalry_Ratio;
-            Loosing_Cata -= TroopCount_Defense.Catapult * Offensive_Cavalry_Ratio;
-            Loosing_Paladin -= TroopCount_Defense.Paladin * Offensive_Cavalry_Ratio;
-            Loosing_Noble -= TroopCount_Defense.Noble * Offensive_Cavalry_Ratio;
-            Loosing_Archer -= TroopCount_Defense.Archer * Offensive_Cavalry_Ratio;
-            Loosing_MA -= TroopCount_Defense.Mounted_Archer * Offensive_Cavalry_Ratio;
-            Loosing_LC -= TroopCount_Defense.Light_Cavalry * Offensive_Cavalry_Ratio;
-            Loosing_HC -= TroopCount_Defense.Heavy_Cavalry * Offensive_Cavalry_Ratio;
-
-            //Archer Phase
-            Winning_Archer -= TroopCount_Offense.Archer * Archer_Loss_Ratio;
-            Winning_MA -= TroopCount_Offense.Mounted_Archer * Archer_Loss_Ratio;
-
-            Loosing_Spear -= TroopCount_Defense.Spearman * Offensive_Archer_Ratio;
-            Loosing_Sword -= TroopCount_Defense.Swordsman * Offensive_Archer_Ratio;
-            Loosing_Axe -= TroopCount_Defense.Axeman * Offensive_Archer_Ratio;
-            Loosing_Ram -= TroopCount_Defense.Ram * Offensive_Archer_Ratio;
-            Loosing_Cata -= TroopCount_Defense.Catapult * Offensive_Archer_Ratio;
-            Loosing_Paladin -= TroopCount_Defense.Paladin * Offensive_Archer_Ratio;
-            Loosing_Noble -= TroopCount_Defense.Noble * Offensive_Archer_Ratio;
-            Loosing_Archer -= TroopCount_Defense.Archer * Offensive_Archer_Ratio;
-            Loosing_MA -= TroopCount_Defense.Mounted_Archer * Offensive_Archer_Ratio;
-            Loosing_LC -= TroopCount_Defense.Light_Cavalry * Offensive_Archer_Ratio;
-            Loosing_HC -= TroopCount_Defense.Heavy_Cavalry * Offensive_Archer_Ratio;
-
-            //done
-            TroopCount_Offense.Spearman = (int)Math.Round(Winning_Spear);
-            TroopCount_Offense.Swordsman = (int)Math.Round(Winning_Sword);
-            TroopCount_Offense.Axeman = (int)Math.Round(Winning_Axe);
-            TroopCount_Offense.Ram = (int)Math.Round(Winning_Ram);
-            TroopCount_Offense.Catapult = (int)Math.Round(Winning_Cata);
-            TroopCount_Offense.Paladin = (int)Math.Round(Winning_Paladin);
-            TroopCount_Offense.Noble = (int)Math.Round(Winning_Noble);
-            TroopCount_Offense.Archer = (int)Math.Round(Winning_Archer);
-            TroopCount_Offense.Mounted_Archer = (int)Math.Round(Winning_MA);
-            TroopCount_Offense.Light_Cavalry = (int)Math.Round(Winning_LC);
-            TroopCount_Offense.Heavy_Cavalry = (int)Math.Round(Winning_HC);
-
-            TroopCount_Defense.Spearman = (int)Math.Round(Loosing_Spear);
-            TroopCount_Defense.Swordsman = (int)Math.Round(Loosing_Sword);
-            TroopCount_Defense.Axeman = (int)Math.Round(Loosing_Axe);
-            TroopCount_Defense.Ram = (int)Math.Round(Loosing_Ram);
-            TroopCount_Defense.Catapult = (int)Math.Round(Loosing_Cata);
-            TroopCount_Defense.Paladin = (int)Math.Round(Loosing_Paladin);
-            TroopCount_Defense.Noble = (int)Math.Round(Loosing_Noble);
-            TroopCount_Defense.Archer = (int)Math.Round(Loosing_Archer);
-            TroopCount_Defense.Mounted_Archer = (int)Math.Round(Loosing_MA);
-            TroopCount_Defense.Light_Cavalry = (int)Math.Round(Loosing_LC);
-            TroopCount_Defense.Heavy_Cavalry = (int)Math.Round(Loosing_HC);
-
+                tmp_Defense.Spearman -= TroopCount_Defense.Spearman * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Swordsman -= TroopCount_Defense.Swordsman * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Axeman -= TroopCount_Defense.Axeman * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Ram -= TroopCount_Defense.Ram * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Catapult -= TroopCount_Defense.Catapult * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Paladin -= TroopCount_Defense.Paladin * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Noble -= TroopCount_Defense.Noble * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Archer -= TroopCount_Defense.Archer * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Mounted_Archer -= TroopCount_Defense.Mounted_Archer * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Light_Cavalry -= TroopCount_Defense.Light_Cavalry * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+                tmp_Defense.Heavy_Cavalry -= TroopCount_Defense.Heavy_Cavalry * Offensive_Cavalry_Ratio * Archer_Loss_Ratio;
+            }            
 
             TroopCount Lost_TroopCount_Offense = new TroopCount();
             TroopCount Lost_TroopCount_Defense = new TroopCount();
 
-            Lost_TroopCount_Offense.Spearman = Int32.Parse(txtSpear.Text) - TroopCount_Offense.Spearman;
-            Lost_TroopCount_Offense.Swordsman = Int32.Parse(txtSword.Text) - TroopCount_Offense.Swordsman;
-            Lost_TroopCount_Offense.Axeman = Int32.Parse(txtAxe.Text) - TroopCount_Offense.Axeman;
-            Lost_TroopCount_Offense.Archer = Int32.Parse(txtArcher.Text) - TroopCount_Offense.Archer;
-            Lost_TroopCount_Offense.Scout = Int32.Parse(txtScout.Text) - TroopCount_Offense.Scout;
-            Lost_TroopCount_Offense.Light_Cavalry = Int32.Parse(txtLC.Text) - TroopCount_Offense.Light_Cavalry;
-            Lost_TroopCount_Offense.Mounted_Archer = Int32.Parse(txtMA.Text) - TroopCount_Offense.Mounted_Archer;
-            Lost_TroopCount_Offense.Heavy_Cavalry = Int32.Parse(txtHC.Text) - TroopCount_Offense.Heavy_Cavalry;
-            Lost_TroopCount_Offense.Ram = Int32.Parse(txtRam.Text) - TroopCount_Offense.Ram;
-            Lost_TroopCount_Offense.Catapult = Int32.Parse(txtCat.Text) - TroopCount_Offense.Catapult;
-            Lost_TroopCount_Offense.Paladin = Int32.Parse(txtPaladin.Text) - TroopCount_Offense.Paladin;
-            Lost_TroopCount_Offense.Noble = Int32.Parse(txtNoble.Text) - TroopCount_Offense.Noble;
+            Lost_TroopCount_Offense.Spearman = Math.Round(TroopCount_Offense.Spearman - tmp_Offense.Spearman);
+            Lost_TroopCount_Offense.Swordsman = Math.Round(TroopCount_Offense.Swordsman - tmp_Offense.Swordsman);
+            Lost_TroopCount_Offense.Axeman = Math.Round(TroopCount_Offense.Axeman - tmp_Offense.Axeman);
+            Lost_TroopCount_Offense.Archer = Math.Round(TroopCount_Offense.Archer - tmp_Offense.Archer);
+            Lost_TroopCount_Offense.Scout = Math.Round(TroopCount_Offense.Scout - tmp_Offense.Scout);
+            Lost_TroopCount_Offense.Light_Cavalry = Math.Round(TroopCount_Offense.Light_Cavalry - tmp_Offense.Light_Cavalry);
+            Lost_TroopCount_Offense.Mounted_Archer = Math.Round(TroopCount_Offense.Mounted_Archer - tmp_Offense.Mounted_Archer);
+            Lost_TroopCount_Offense.Heavy_Cavalry = Math.Round(TroopCount_Offense.Heavy_Cavalry - tmp_Offense.Heavy_Cavalry);
+            Lost_TroopCount_Offense.Ram = Math.Round(TroopCount_Offense.Ram - tmp_Offense.Ram);
+            Lost_TroopCount_Offense.Catapult = Math.Round(TroopCount_Offense.Catapult - tmp_Offense.Catapult);
+            Lost_TroopCount_Offense.Paladin = Math.Round(TroopCount_Offense.Paladin - tmp_Offense.Paladin);
+            Lost_TroopCount_Offense.Noble = Math.Round(TroopCount_Offense.Noble - tmp_Offense.Noble);
 
-            Lost_TroopCount_Defense.Spearman = Int32.Parse(txtSpearDefense.Text) - TroopCount_Defense.Spearman;
-            Lost_TroopCount_Defense.Swordsman = Int32.Parse(txtSwordDefense.Text) - TroopCount_Defense.Swordsman;
-            Lost_TroopCount_Defense.Axeman = Int32.Parse(txtAxeDefense.Text) - TroopCount_Defense.Axeman;
-            Lost_TroopCount_Defense.Archer = Int32.Parse(txtArcherDefense.Text) - TroopCount_Defense.Archer;
-            Lost_TroopCount_Defense.Scout = Int32.Parse(txtScoutDefense.Text) - TroopCount_Defense.Scout;
-            Lost_TroopCount_Defense.Light_Cavalry = Int32.Parse(txtLCDefense.Text) - TroopCount_Defense.Light_Cavalry;
-            Lost_TroopCount_Defense.Mounted_Archer = Int32.Parse(txtMADefense.Text) - TroopCount_Defense.Mounted_Archer;
-            Lost_TroopCount_Defense.Heavy_Cavalry = Int32.Parse(txtHCDefense.Text) - TroopCount_Defense.Heavy_Cavalry;
-            Lost_TroopCount_Defense.Ram = Int32.Parse(txtRamDefense.Text) - TroopCount_Defense.Ram;
-            Lost_TroopCount_Defense.Catapult = Int32.Parse(txtCatDefense.Text) - TroopCount_Defense.Catapult;
-            Lost_TroopCount_Defense.Paladin = Int32.Parse(txtPaladinDefense.Text) - TroopCount_Defense.Paladin;
-            Lost_TroopCount_Defense.Noble = Int32.Parse(txtNobleDefense.Text) - TroopCount_Defense.Noble;
-            Lost_TroopCount_Defense.Militia = Int32.Parse(txtMilitia.Text) - TroopCount_Defense.Militia;
-
-
+            Lost_TroopCount_Defense.Spearman = Math.Round(TroopCount_Defense.Spearman - tmp_Defense.Spearman);
+            Lost_TroopCount_Defense.Swordsman = Math.Round(TroopCount_Defense.Swordsman - tmp_Defense.Swordsman);
+            Lost_TroopCount_Defense.Axeman = Math.Round(TroopCount_Defense.Axeman - tmp_Defense.Axeman);
+            Lost_TroopCount_Defense.Archer = Math.Round(TroopCount_Defense.Archer - tmp_Defense.Archer);
+            Lost_TroopCount_Defense.Scout = Math.Round(TroopCount_Defense.Scout - tmp_Defense.Scout);
+            Lost_TroopCount_Defense.Light_Cavalry = Math.Round(TroopCount_Defense.Light_Cavalry - tmp_Defense.Light_Cavalry);
+            Lost_TroopCount_Defense.Mounted_Archer = Math.Round(TroopCount_Defense.Mounted_Archer - tmp_Defense.Mounted_Archer);
+            Lost_TroopCount_Defense.Heavy_Cavalry = Math.Round(TroopCount_Defense.Heavy_Cavalry - tmp_Defense.Heavy_Cavalry);
+            Lost_TroopCount_Defense.Ram = Math.Round(TroopCount_Defense.Ram - tmp_Defense.Ram);
+            Lost_TroopCount_Defense.Catapult = Math.Round(TroopCount_Defense.Catapult - tmp_Defense.Catapult);
+            Lost_TroopCount_Defense.Paladin = Math.Round(TroopCount_Defense.Paladin - tmp_Defense.Paladin);
+            Lost_TroopCount_Defense.Noble = Math.Round(TroopCount_Defense.Noble - tmp_Defense.Noble);
+            Lost_TroopCount_Defense.Militia = Math.Round(TroopCount_Defense.Militia - tmp_Defense.Militia);
             
             //TroopCount_Offense
 
