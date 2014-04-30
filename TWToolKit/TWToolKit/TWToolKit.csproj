@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBuildGuesser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBuildGuesser.Designer.cs">
+      <DependentUpon>AboutBuildGuesser.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuildingGuesser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map.Designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
     <Compile Include="PalaWeapon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Simulator_Results.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,25 +100,26 @@
     <Compile Include="VillageDesigner.Designer.cs">
       <DependentUpon>VillageDesigner.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutBuildGuesser.resx">
+      <DependentUpon>AboutBuildGuesser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuildingGuesser.resx">
       <DependentUpon>BuildingGuesser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PalaWeapon.resx">
       <DependentUpon>PalaWeapon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Simulator_Results.resx">
       <DependentUpon>Simulator_Results.cs</DependentUpon>
     </EmbeddedResource>

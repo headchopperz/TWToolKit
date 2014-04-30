@@ -237,6 +237,25 @@ namespace TWToolKit
             public int Warehouse = -1;
             public int Hiding = -1;
             public int Wall = -1;
+
+            public int Max_HQ = -1;
+            public int Max_Barracks = -1;
+            public int Max_Stable = -1;
+            public int Max_Workshop = -1;
+            public int Max_Church = -1;
+            public int Max_Church_f = -1;
+            public int Max_Academy = -1;
+            public int Max_Smithy = -1;
+            public int Max_Rally = -1;
+            public int Max_Statue = -1;
+            public int Max_Market = -1;
+            public int Max_Camp = -1;
+            public int Max_Pit = -1;
+            public int Max_Mine = -1;
+            public int Max_Farm = -1;
+            public int Max_Warehouse = -1;
+            public int Max_Hiding = -1;
+            public int Max_Wall = -1;
         }
 
         public UnitIDs UnitID = new UnitIDs();
@@ -279,6 +298,7 @@ namespace TWToolKit
 
                 btnVD.Enabled = true;
                 btnBG.Enabled = true;
+                btnWorldViewer.Enabled = true;
             }
         }
 
@@ -320,6 +340,12 @@ namespace TWToolKit
             //http://forum.tribalwars.us/showthread.php?5996-World-Data
             //Building Info
             //"http://en" + txtWorldID.Text + ".tribalwars.net/interface.php?func=get_building_info"
+
+            //Village Data
+            //http://en73.tribalwars.net/map/village.txt
+
+            //Player Data
+            //http://enc1.tribalwars.net/map/player.txt
 
             //World Settings
             //en73.tribalwars.net/interface.php?func=get_config
@@ -447,7 +473,7 @@ namespace TWToolKit
                     newBuilding.Base_Points = 6;
                     BuildingID.Mine = i;
                 } else if (newBuilding.name == "farm") {
-                    newBuilding.Base_Points = 6;
+                    newBuilding.Base_Points = 5;
                     BuildingID.Farm = i;
                 } else if (newBuilding.name == "storage") {
                     newBuilding.Base_Points = 6;
@@ -654,6 +680,13 @@ namespace TWToolKit
             nForm.SettingClass = Settings;
             nForm.BuildingIDList = BuildingID;
             nForm.Show();
+        }
+
+        private void btnWorldViewer_Click(object sender, EventArgs e) {
+            Map nForm = new Map();
+            nForm.World_ID = Int32.Parse(txtWorldID.Text);
+            nForm.Show();
+
         }
     }
 }

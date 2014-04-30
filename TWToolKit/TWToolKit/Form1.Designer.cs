@@ -44,6 +44,8 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.txtLog = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnWorldViewer = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -132,7 +134,7 @@
             this.toolStripLabel3,
             this.toolStripLabel4,
             this.toolStripLabel2});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 411);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 516);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(385, 25);
             this.toolStrip2.TabIndex = 6;
@@ -186,11 +188,33 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Log";
             // 
+            // btnWorldViewer
+            // 
+            this.btnWorldViewer.Enabled = false;
+            this.btnWorldViewer.Location = new System.Drawing.Point(214, 414);
+            this.btnWorldViewer.Name = "btnWorldViewer";
+            this.btnWorldViewer.Size = new System.Drawing.Size(171, 95);
+            this.btnWorldViewer.TabIndex = 9;
+            this.btnWorldViewer.Text = "World Viewer";
+            this.btnWorldViewer.UseVisualStyleBackColor = true;
+            this.btnWorldViewer.Click += new System.EventHandler(this.btnWorldViewer_Click);
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(0, 414);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(171, 95);
+            this.button2.TabIndex = 10;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 436);
+            this.ClientSize = new System.Drawing.Size(385, 541);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnWorldViewer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.toolStrip2);
@@ -233,6 +257,8 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.RichTextBox txtLog;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnWorldViewer;
+        private System.Windows.Forms.Button button2;
     }
 }
 

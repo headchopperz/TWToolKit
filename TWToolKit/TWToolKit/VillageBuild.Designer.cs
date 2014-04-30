@@ -102,6 +102,25 @@
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
+            this.txtHQMax = new System.Windows.Forms.TextBox();
+            this.txtBarracksMax = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtStableMax = new System.Windows.Forms.TextBox();
+            this.txtWorkshopMax = new System.Windows.Forms.TextBox();
+            this.txtChurchMax = new System.Windows.Forms.TextBox();
+            this.txtChurch_FMax = new System.Windows.Forms.TextBox();
+            this.txtAcademyMax = new System.Windows.Forms.TextBox();
+            this.txtSmithyMax = new System.Windows.Forms.TextBox();
+            this.txtRallyMax = new System.Windows.Forms.TextBox();
+            this.txtStatueMax = new System.Windows.Forms.TextBox();
+            this.txtMarketMax = new System.Windows.Forms.TextBox();
+            this.txtWoodMax = new System.Windows.Forms.TextBox();
+            this.txtClayMax = new System.Windows.Forms.TextBox();
+            this.txtIronMax = new System.Windows.Forms.TextBox();
+            this.txtFarmMax = new System.Windows.Forms.TextBox();
+            this.txtStorageMax = new System.Windows.Forms.TextBox();
+            this.txtHidingMax = new System.Windows.Forms.TextBox();
+            this.txtWallMax = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
@@ -127,7 +146,7 @@
             // 
             this.txtHQ.Location = new System.Drawing.Point(69, 37);
             this.txtHQ.Name = "txtHQ";
-            this.txtHQ.Size = new System.Drawing.Size(95, 20);
+            this.txtHQ.Size = new System.Drawing.Size(50, 20);
             this.txtHQ.TabIndex = 1;
             this.txtHQ.Text = "0";
             this.txtHQ.TextChanged += new System.EventHandler(this.txtHQ_TextChanged);
@@ -155,7 +174,7 @@
             // 
             this.txtBarracks.Location = new System.Drawing.Point(69, 88);
             this.txtBarracks.Name = "txtBarracks";
-            this.txtBarracks.Size = new System.Drawing.Size(95, 20);
+            this.txtBarracks.Size = new System.Drawing.Size(50, 20);
             this.txtBarracks.TabIndex = 4;
             this.txtBarracks.Text = "0";
             this.txtBarracks.TextChanged += new System.EventHandler(this.txtBarracks_TextChanged);
@@ -174,7 +193,7 @@
             // 
             this.txtStable.Location = new System.Drawing.Point(69, 139);
             this.txtStable.Name = "txtStable";
-            this.txtStable.Size = new System.Drawing.Size(95, 20);
+            this.txtStable.Size = new System.Drawing.Size(50, 20);
             this.txtStable.TabIndex = 7;
             this.txtStable.Text = "0";
             this.txtStable.TextChanged += new System.EventHandler(this.txtStable_TextChanged);
@@ -193,7 +212,7 @@
             // 
             this.txtWorkshop.Location = new System.Drawing.Point(69, 190);
             this.txtWorkshop.Name = "txtWorkshop";
-            this.txtWorkshop.Size = new System.Drawing.Size(95, 20);
+            this.txtWorkshop.Size = new System.Drawing.Size(50, 20);
             this.txtWorkshop.TabIndex = 10;
             this.txtWorkshop.Text = "0";
             this.txtWorkshop.TextChanged += new System.EventHandler(this.txtWorkshop_TextChanged);
@@ -212,7 +231,7 @@
             // 
             this.txtChurch.Location = new System.Drawing.Point(69, 241);
             this.txtChurch.Name = "txtChurch";
-            this.txtChurch.Size = new System.Drawing.Size(95, 20);
+            this.txtChurch.Size = new System.Drawing.Size(50, 20);
             this.txtChurch.TabIndex = 13;
             this.txtChurch.Text = "0";
             this.txtChurch.TextChanged += new System.EventHandler(this.txtChurch_TextChanged);
@@ -231,7 +250,7 @@
             // 
             this.txtChurch_F.Location = new System.Drawing.Point(69, 292);
             this.txtChurch_F.Name = "txtChurch_F";
-            this.txtChurch_F.Size = new System.Drawing.Size(95, 20);
+            this.txtChurch_F.Size = new System.Drawing.Size(50, 20);
             this.txtChurch_F.TabIndex = 16;
             this.txtChurch_F.Text = "0";
             this.txtChurch_F.TextChanged += new System.EventHandler(this.txtChurch_F_TextChanged);
@@ -250,7 +269,7 @@
             // 
             this.txtAcademy.Location = new System.Drawing.Point(69, 343);
             this.txtAcademy.Name = "txtAcademy";
-            this.txtAcademy.Size = new System.Drawing.Size(95, 20);
+            this.txtAcademy.Size = new System.Drawing.Size(50, 20);
             this.txtAcademy.TabIndex = 19;
             this.txtAcademy.Text = "0";
             this.txtAcademy.TextChanged += new System.EventHandler(this.txtAcademy_TextChanged);
@@ -269,7 +288,7 @@
             // 
             this.txtIron.Location = new System.Drawing.Point(241, 343);
             this.txtIron.Name = "txtIron";
-            this.txtIron.Size = new System.Drawing.Size(95, 20);
+            this.txtIron.Size = new System.Drawing.Size(50, 20);
             this.txtIron.TabIndex = 40;
             this.txtIron.Text = "0";
             this.txtIron.TextChanged += new System.EventHandler(this.txtIron_TextChanged);
@@ -287,7 +306,7 @@
             // 
             this.txtClay.Location = new System.Drawing.Point(241, 292);
             this.txtClay.Name = "txtClay";
-            this.txtClay.Size = new System.Drawing.Size(95, 20);
+            this.txtClay.Size = new System.Drawing.Size(50, 20);
             this.txtClay.TabIndex = 37;
             this.txtClay.Text = "0";
             this.txtClay.TextChanged += new System.EventHandler(this.txtClay_TextChanged);
@@ -305,7 +324,7 @@
             // 
             this.txtWood.Location = new System.Drawing.Point(241, 241);
             this.txtWood.Name = "txtWood";
-            this.txtWood.Size = new System.Drawing.Size(95, 20);
+            this.txtWood.Size = new System.Drawing.Size(50, 20);
             this.txtWood.TabIndex = 34;
             this.txtWood.Text = "0";
             this.txtWood.TextChanged += new System.EventHandler(this.txtWood_TextChanged);
@@ -323,7 +342,7 @@
             // 
             this.txtMarket.Location = new System.Drawing.Point(241, 190);
             this.txtMarket.Name = "txtMarket";
-            this.txtMarket.Size = new System.Drawing.Size(95, 20);
+            this.txtMarket.Size = new System.Drawing.Size(50, 20);
             this.txtMarket.TabIndex = 31;
             this.txtMarket.Text = "0";
             this.txtMarket.TextChanged += new System.EventHandler(this.txtMarket_TextChanged);
@@ -341,7 +360,7 @@
             // 
             this.txtStatue.Location = new System.Drawing.Point(241, 139);
             this.txtStatue.Name = "txtStatue";
-            this.txtStatue.Size = new System.Drawing.Size(95, 20);
+            this.txtStatue.Size = new System.Drawing.Size(50, 20);
             this.txtStatue.TabIndex = 28;
             this.txtStatue.Text = "0";
             this.txtStatue.TextChanged += new System.EventHandler(this.txtStatue_TextChanged);
@@ -359,7 +378,7 @@
             // 
             this.txtRally.Location = new System.Drawing.Point(241, 88);
             this.txtRally.Name = "txtRally";
-            this.txtRally.Size = new System.Drawing.Size(95, 20);
+            this.txtRally.Size = new System.Drawing.Size(50, 20);
             this.txtRally.TabIndex = 25;
             this.txtRally.Text = "0";
             this.txtRally.TextChanged += new System.EventHandler(this.txtRally_TextChanged);
@@ -377,7 +396,7 @@
             // 
             this.txtSmithy.Location = new System.Drawing.Point(241, 37);
             this.txtSmithy.Name = "txtSmithy";
-            this.txtSmithy.Size = new System.Drawing.Size(95, 20);
+            this.txtSmithy.Size = new System.Drawing.Size(50, 20);
             this.txtSmithy.TabIndex = 22;
             this.txtSmithy.Text = "0";
             this.txtSmithy.TextChanged += new System.EventHandler(this.txtSmithy_TextChanged);
@@ -385,7 +404,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(408, 174);
+            this.label18.Location = new System.Drawing.Point(420, 174);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(60, 13);
             this.label18.TabIndex = 53;
@@ -393,9 +412,9 @@
             // 
             // txtWall
             // 
-            this.txtWall.Location = new System.Drawing.Point(408, 190);
+            this.txtWall.Location = new System.Drawing.Point(420, 190);
             this.txtWall.Name = "txtWall";
-            this.txtWall.Size = new System.Drawing.Size(95, 20);
+            this.txtWall.Size = new System.Drawing.Size(50, 20);
             this.txtWall.TabIndex = 52;
             this.txtWall.Text = "0";
             this.txtWall.TextChanged += new System.EventHandler(this.txtWall_TextChanged);
@@ -403,7 +422,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(408, 123);
+            this.label19.Location = new System.Drawing.Point(420, 123);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(69, 13);
             this.label19.TabIndex = 50;
@@ -411,9 +430,9 @@
             // 
             // txtHiding
             // 
-            this.txtHiding.Location = new System.Drawing.Point(408, 139);
+            this.txtHiding.Location = new System.Drawing.Point(420, 139);
             this.txtHiding.Name = "txtHiding";
-            this.txtHiding.Size = new System.Drawing.Size(95, 20);
+            this.txtHiding.Size = new System.Drawing.Size(50, 20);
             this.txtHiding.TabIndex = 49;
             this.txtHiding.Text = "0";
             this.txtHiding.TextChanged += new System.EventHandler(this.txtHiding_TextChanged);
@@ -421,7 +440,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(408, 72);
+            this.label20.Location = new System.Drawing.Point(420, 72);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(76, 13);
             this.label20.TabIndex = 47;
@@ -429,9 +448,9 @@
             // 
             // txtStorage
             // 
-            this.txtStorage.Location = new System.Drawing.Point(408, 88);
+            this.txtStorage.Location = new System.Drawing.Point(420, 88);
             this.txtStorage.Name = "txtStorage";
-            this.txtStorage.Size = new System.Drawing.Size(95, 20);
+            this.txtStorage.Size = new System.Drawing.Size(50, 20);
             this.txtStorage.TabIndex = 46;
             this.txtStorage.Text = "0";
             this.txtStorage.TextChanged += new System.EventHandler(this.txtStorage_TextChanged);
@@ -439,7 +458,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(408, 21);
+            this.label21.Location = new System.Drawing.Point(420, 21);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(62, 13);
             this.label21.TabIndex = 44;
@@ -447,9 +466,9 @@
             // 
             // txtFarm
             // 
-            this.txtFarm.Location = new System.Drawing.Point(408, 37);
+            this.txtFarm.Location = new System.Drawing.Point(420, 37);
             this.txtFarm.Name = "txtFarm";
-            this.txtFarm.Size = new System.Drawing.Size(95, 20);
+            this.txtFarm.Size = new System.Drawing.Size(50, 20);
             this.txtFarm.TabIndex = 43;
             this.txtFarm.Text = "0";
             this.txtFarm.TextChanged += new System.EventHandler(this.txtFarm_TextChanged);
@@ -462,14 +481,14 @@
             this.panel1.Controls.Add(this.btnMinLevel);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.minLevels);
-            this.panel1.Location = new System.Drawing.Point(351, 225);
+            this.panel1.Location = new System.Drawing.Point(363, 225);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(152, 138);
+            this.panel1.Size = new System.Drawing.Size(166, 138);
             this.panel1.TabIndex = 54;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 73);
+            this.button1.Location = new System.Drawing.Point(25, 77);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 23);
             this.button1.TabIndex = 4;
@@ -478,7 +497,7 @@
             // 
             // btnMinLevel
             // 
-            this.btnMinLevel.Location = new System.Drawing.Point(11, 102);
+            this.btnMinLevel.Location = new System.Drawing.Point(25, 106);
             this.btnMinLevel.Name = "btnMinLevel";
             this.btnMinLevel.Size = new System.Drawing.Size(121, 23);
             this.btnMinLevel.TabIndex = 3;
@@ -489,7 +508,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Lucida Fax", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(28, 10);
+            this.label15.Location = new System.Drawing.Point(38, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(97, 24);
             this.label15.TabIndex = 2;
@@ -500,7 +519,7 @@
             this.minLevels.AutoSize = true;
             this.minLevels.Checked = true;
             this.minLevels.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.minLevels.Location = new System.Drawing.Point(11, 50);
+            this.minLevels.Location = new System.Drawing.Point(25, 54);
             this.minLevels.Name = "minLevels";
             this.minLevels.Size = new System.Drawing.Size(121, 17);
             this.minLevels.TabIndex = 1;
@@ -643,7 +662,7 @@
             this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
             this.pictureBox18.ImageLocation = "";
             this.pictureBox18.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox18.InitialImage")));
-            this.pictureBox18.Location = new System.Drawing.Point(351, 165);
+            this.pictureBox18.Location = new System.Drawing.Point(363, 165);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(51, 45);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -655,7 +674,7 @@
             this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
             this.pictureBox19.ImageLocation = "";
             this.pictureBox19.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox19.InitialImage")));
-            this.pictureBox19.Location = new System.Drawing.Point(351, 114);
+            this.pictureBox19.Location = new System.Drawing.Point(363, 114);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(51, 45);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -667,7 +686,7 @@
             this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
             this.pictureBox20.ImageLocation = "";
             this.pictureBox20.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox20.InitialImage")));
-            this.pictureBox20.Location = new System.Drawing.Point(351, 63);
+            this.pictureBox20.Location = new System.Drawing.Point(363, 63);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(51, 45);
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -679,7 +698,7 @@
             this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
             this.pictureBox21.ImageLocation = "";
             this.pictureBox21.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox21.InitialImage")));
-            this.pictureBox21.Location = new System.Drawing.Point(351, 12);
+            this.pictureBox21.Location = new System.Drawing.Point(363, 12);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(51, 45);
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -884,11 +903,183 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // txtHQMax
+            // 
+            this.txtHQMax.Location = new System.Drawing.Point(125, 37);
+            this.txtHQMax.Name = "txtHQMax";
+            this.txtHQMax.Size = new System.Drawing.Size(53, 20);
+            this.txtHQMax.TabIndex = 68;
+            this.txtHQMax.Text = "0";
+            // 
+            // txtBarracksMax
+            // 
+            this.txtBarracksMax.Location = new System.Drawing.Point(125, 88);
+            this.txtBarracksMax.Name = "txtBarracksMax";
+            this.txtBarracksMax.Size = new System.Drawing.Size(53, 20);
+            this.txtBarracksMax.TabIndex = 69;
+            this.txtBarracksMax.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(151, 21);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(27, 13);
+            this.label16.TabIndex = 70;
+            this.label16.Text = "Max";
+            // 
+            // txtStableMax
+            // 
+            this.txtStableMax.Location = new System.Drawing.Point(125, 139);
+            this.txtStableMax.Name = "txtStableMax";
+            this.txtStableMax.Size = new System.Drawing.Size(53, 20);
+            this.txtStableMax.TabIndex = 71;
+            this.txtStableMax.Text = "0";
+            // 
+            // txtWorkshopMax
+            // 
+            this.txtWorkshopMax.Location = new System.Drawing.Point(125, 190);
+            this.txtWorkshopMax.Name = "txtWorkshopMax";
+            this.txtWorkshopMax.Size = new System.Drawing.Size(53, 20);
+            this.txtWorkshopMax.TabIndex = 72;
+            this.txtWorkshopMax.Text = "0";
+            // 
+            // txtChurchMax
+            // 
+            this.txtChurchMax.Location = new System.Drawing.Point(125, 240);
+            this.txtChurchMax.Name = "txtChurchMax";
+            this.txtChurchMax.Size = new System.Drawing.Size(53, 20);
+            this.txtChurchMax.TabIndex = 73;
+            this.txtChurchMax.Text = "0";
+            // 
+            // txtChurch_FMax
+            // 
+            this.txtChurch_FMax.Location = new System.Drawing.Point(125, 292);
+            this.txtChurch_FMax.Name = "txtChurch_FMax";
+            this.txtChurch_FMax.Size = new System.Drawing.Size(53, 20);
+            this.txtChurch_FMax.TabIndex = 74;
+            this.txtChurch_FMax.Text = "0";
+            // 
+            // txtAcademyMax
+            // 
+            this.txtAcademyMax.Location = new System.Drawing.Point(125, 343);
+            this.txtAcademyMax.Name = "txtAcademyMax";
+            this.txtAcademyMax.Size = new System.Drawing.Size(53, 20);
+            this.txtAcademyMax.TabIndex = 75;
+            this.txtAcademyMax.Text = "0";
+            // 
+            // txtSmithyMax
+            // 
+            this.txtSmithyMax.Location = new System.Drawing.Point(300, 37);
+            this.txtSmithyMax.Name = "txtSmithyMax";
+            this.txtSmithyMax.Size = new System.Drawing.Size(53, 20);
+            this.txtSmithyMax.TabIndex = 76;
+            this.txtSmithyMax.Text = "0";
+            // 
+            // txtRallyMax
+            // 
+            this.txtRallyMax.Location = new System.Drawing.Point(300, 88);
+            this.txtRallyMax.Name = "txtRallyMax";
+            this.txtRallyMax.Size = new System.Drawing.Size(53, 20);
+            this.txtRallyMax.TabIndex = 77;
+            this.txtRallyMax.Text = "0";
+            // 
+            // txtStatueMax
+            // 
+            this.txtStatueMax.Location = new System.Drawing.Point(300, 139);
+            this.txtStatueMax.Name = "txtStatueMax";
+            this.txtStatueMax.Size = new System.Drawing.Size(53, 20);
+            this.txtStatueMax.TabIndex = 78;
+            this.txtStatueMax.Text = "0";
+            // 
+            // txtMarketMax
+            // 
+            this.txtMarketMax.Location = new System.Drawing.Point(300, 190);
+            this.txtMarketMax.Name = "txtMarketMax";
+            this.txtMarketMax.Size = new System.Drawing.Size(53, 20);
+            this.txtMarketMax.TabIndex = 79;
+            this.txtMarketMax.Text = "0";
+            // 
+            // txtWoodMax
+            // 
+            this.txtWoodMax.Location = new System.Drawing.Point(300, 241);
+            this.txtWoodMax.Name = "txtWoodMax";
+            this.txtWoodMax.Size = new System.Drawing.Size(53, 20);
+            this.txtWoodMax.TabIndex = 80;
+            this.txtWoodMax.Text = "0";
+            // 
+            // txtClayMax
+            // 
+            this.txtClayMax.Location = new System.Drawing.Point(300, 292);
+            this.txtClayMax.Name = "txtClayMax";
+            this.txtClayMax.Size = new System.Drawing.Size(53, 20);
+            this.txtClayMax.TabIndex = 81;
+            this.txtClayMax.Text = "0";
+            // 
+            // txtIronMax
+            // 
+            this.txtIronMax.Location = new System.Drawing.Point(300, 343);
+            this.txtIronMax.Name = "txtIronMax";
+            this.txtIronMax.Size = new System.Drawing.Size(53, 20);
+            this.txtIronMax.TabIndex = 82;
+            this.txtIronMax.Text = "0";
+            // 
+            // txtFarmMax
+            // 
+            this.txtFarmMax.Location = new System.Drawing.Point(476, 37);
+            this.txtFarmMax.Name = "txtFarmMax";
+            this.txtFarmMax.Size = new System.Drawing.Size(53, 20);
+            this.txtFarmMax.TabIndex = 83;
+            this.txtFarmMax.Text = "0";
+            // 
+            // txtStorageMax
+            // 
+            this.txtStorageMax.Location = new System.Drawing.Point(476, 88);
+            this.txtStorageMax.Name = "txtStorageMax";
+            this.txtStorageMax.Size = new System.Drawing.Size(53, 20);
+            this.txtStorageMax.TabIndex = 84;
+            this.txtStorageMax.Text = "0";
+            // 
+            // txtHidingMax
+            // 
+            this.txtHidingMax.Location = new System.Drawing.Point(476, 139);
+            this.txtHidingMax.Name = "txtHidingMax";
+            this.txtHidingMax.Size = new System.Drawing.Size(53, 20);
+            this.txtHidingMax.TabIndex = 85;
+            this.txtHidingMax.Text = "0";
+            // 
+            // txtWallMax
+            // 
+            this.txtWallMax.Location = new System.Drawing.Point(476, 190);
+            this.txtWallMax.Name = "txtWallMax";
+            this.txtWallMax.Size = new System.Drawing.Size(53, 20);
+            this.txtWallMax.TabIndex = 86;
+            this.txtWallMax.Text = "0";
+            // 
             // VillageBuild
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 666);
+            this.ClientSize = new System.Drawing.Size(539, 666);
+            this.Controls.Add(this.txtWallMax);
+            this.Controls.Add(this.txtHidingMax);
+            this.Controls.Add(this.txtStorageMax);
+            this.Controls.Add(this.txtFarmMax);
+            this.Controls.Add(this.txtIronMax);
+            this.Controls.Add(this.txtClayMax);
+            this.Controls.Add(this.txtWoodMax);
+            this.Controls.Add(this.txtMarketMax);
+            this.Controls.Add(this.txtStatueMax);
+            this.Controls.Add(this.txtRallyMax);
+            this.Controls.Add(this.txtSmithyMax);
+            this.Controls.Add(this.txtAcademyMax);
+            this.Controls.Add(this.txtChurch_FMax);
+            this.Controls.Add(this.txtChurchMax);
+            this.Controls.Add(this.txtWorkshopMax);
+            this.Controls.Add(this.txtStableMax);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.txtBarracksMax);
+            this.Controls.Add(this.txtHQMax);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnReturn);
@@ -1063,5 +1254,24 @@
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnMinLevel;
+        private System.Windows.Forms.TextBox txtHQMax;
+        private System.Windows.Forms.TextBox txtBarracksMax;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtStableMax;
+        private System.Windows.Forms.TextBox txtWorkshopMax;
+        private System.Windows.Forms.TextBox txtChurchMax;
+        private System.Windows.Forms.TextBox txtChurch_FMax;
+        private System.Windows.Forms.TextBox txtAcademyMax;
+        private System.Windows.Forms.TextBox txtSmithyMax;
+        private System.Windows.Forms.TextBox txtRallyMax;
+        private System.Windows.Forms.TextBox txtStatueMax;
+        private System.Windows.Forms.TextBox txtMarketMax;
+        private System.Windows.Forms.TextBox txtWoodMax;
+        private System.Windows.Forms.TextBox txtClayMax;
+        private System.Windows.Forms.TextBox txtIronMax;
+        private System.Windows.Forms.TextBox txtFarmMax;
+        private System.Windows.Forms.TextBox txtStorageMax;
+        private System.Windows.Forms.TextBox txtHidingMax;
+        private System.Windows.Forms.TextBox txtWallMax;
     }
 }

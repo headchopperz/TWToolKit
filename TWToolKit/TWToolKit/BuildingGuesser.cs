@@ -105,6 +105,7 @@ namespace TWToolKit {
 
         private void btnProcess_Click(object sender, EventArgs e) {
             Thread t = new Thread(ProcessStuff);
+            t.Priority = ThreadPriority.Highest;
             t.Start();
 
             btnProcess.Text = "Processing...";
@@ -158,8 +159,33 @@ namespace TWToolKit {
             if (VillageBuild_Guess.Wall < Building[BuildingIDs.Wall].min_level)
                 VillageBuild_Guess.Wall = Building[BuildingIDs.Wall].min_level;
 
+            /*
+            VillageBuild_Guess.HQ = 25;
+            VillageBuild_Guess.Barracks = 15;
+            VillageBuild_Guess.Stable = 10;
+            VillageBuild_Guess.Workshop = 5;
+            VillageBuild_Guess.Academy = 1;
+            VillageBuild_Guess.Smithy = 20;
+            VillageBuild_Guess.Rally = 1;
+            VillageBuild_Guess.Statue = 1;
+            VillageBuild_Guess.Market = 10;
+            VillageBuild_Guess.Camp = 15;
+            VillageBuild_Guess.Pit = 15;
+            VillageBuild_Guess.Mine = 15;
+            VillageBuild_Guess.Farm = 25;
+            VillageBuild_Guess.Warehouse = 22;
+            VillageBuild_Guess.Hiding = 2;
+            VillageBuild_Guess.Wall = 15;
+             //*/
+             /*
+             * Points_To_Parse = 3361;
+             */
 
             int Points_To_Parse = Int32.Parse(txtPoints.Text);
+
+            int Resource_Variance = Int32.Parse(txtVariance.Text);
+
+            bool StableForce = chkStableForce.Checked;
 
             string Path = "PossibleBuilds/Points_" + txtPoints.Text + ".xml";
             //Path = txtOutputFile.Text;
@@ -177,6 +203,10 @@ namespace TWToolKit {
 
                 SetPercent(Warehouse);
 
+                //Max Check
+                if (Warehouse > VillageBuild_Guess.Max_Warehouse)
+                    break;
+
                 //Point Check
                 int Cur_Points_Warehouse = Building[BuildingIDs.Warehouse].Point_Table[Warehouse];
                 if (Cur_Points_Warehouse > Points_To_Parse)
@@ -186,6 +216,10 @@ namespace TWToolKit {
                  * FARM
                  */
                 for (int Farm = VillageBuild_Guess.Farm; Farm <= Building[BuildingIDs.Farm].max_level; Farm++) {
+
+                    //Max Check
+                    if (Farm > VillageBuild_Guess.Max_Farm)
+                        break;
 
                     //Warehouse Check
                     if (Building[BuildingIDs.Farm].Total_Res_Table[Farm] > WarehouseLimit[Warehouse])
@@ -199,8 +233,12 @@ namespace TWToolKit {
 
                     /*
                      *  HQ
-                     */ 
+                     */
                     for (int HQ = VillageBuild_Guess.HQ; HQ <= Building[BuildingIDs.HQ].max_level; HQ++) {
+
+                        //Max Check
+                        if (HQ > VillageBuild_Guess.Max_HQ)
+                            break;
 
                         //Warehouse Check
                         if (Building[BuildingIDs.HQ].Total_Res_Table[HQ] > WarehouseLimit[Warehouse]) 
@@ -226,6 +264,10 @@ namespace TWToolKit {
 
                         for (int Barracks = VillageBuild_Guess.Barracks; Barracks <= ((CanBuildBarracks) ? Building[BuildingIDs.Barracks].max_level : 0); Barracks++) {
 
+                            //Max Check
+                            if (Barracks > VillageBuild_Guess.Max_Barracks)
+                                break;
+
                             //Warehouse Check
                             if (Building[BuildingIDs.Barracks].Total_Res_Table[Barracks] > WarehouseLimit[Warehouse])
                                 break;
@@ -249,6 +291,10 @@ namespace TWToolKit {
                                 CanBuildMarket = false;
 
                             for (int Market = VillageBuild_Guess.Market; Market <= ((CanBuildMarket) ? Building[BuildingIDs.Market].max_level : 0); Market++) {
+
+                                //Max Check
+                                if (Market > VillageBuild_Guess.Max_Market)
+                                    break;
 
                                 //Warehouse Check
                                 if (Building[BuildingIDs.Market].Total_Res_Table[Market] > WarehouseLimit[Warehouse])
@@ -274,6 +320,10 @@ namespace TWToolKit {
 
                                 for (int Smithy = VillageBuild_Guess.Smithy; Smithy <= ((CanBuildSmithy) ? Building[BuildingIDs.Smithy].max_level : 0); Smithy++) {
 
+                                    //Max Check
+                                    if (Smithy > VillageBuild_Guess.Max_Smithy)
+                                        break;
+
                                     //Warehouse Check
                                     if (Building[BuildingIDs.Smithy].Total_Res_Table[Smithy] > WarehouseLimit[Warehouse])
                                         break;
@@ -298,6 +348,10 @@ namespace TWToolKit {
 
                                     for (int Academy = VillageBuild_Guess.Academy; Academy <= ((CanBuildAcademy) ? Building[BuildingIDs.Academy].max_level : 0); Academy++) {
 
+                                        //Max Check
+                                        if (Academy > VillageBuild_Guess.Max_Academy)
+                                            break;
+
                                         //Warehouse Check
                                         if (Building[BuildingIDs.Academy].Total_Res_Table[Academy] > WarehouseLimit[Warehouse])
                                             break;
@@ -321,7 +375,14 @@ namespace TWToolKit {
                                             CanBuildStables = false;
 
                                         for (int Stables = VillageBuild_Guess.Stable; Stables <= ((CanBuildStables) ? Building[BuildingIDs.Stable].max_level : 0); Stables++) {
-                                            
+
+                                            //Max Check
+                                            if (Stables > VillageBuild_Guess.Max_Stable)
+                                                break;
+
+                                            if ((StableForce) && (Stables > Barracks))
+                                                break;
+
                                             //Warehouse Check
                                             if (Building[BuildingIDs.Stable].Total_Res_Table[Stables] > WarehouseLimit[Warehouse])
                                                 break;
@@ -346,6 +407,10 @@ namespace TWToolKit {
 
                                             for (int Workshop = VillageBuild_Guess.Workshop; Workshop <= ((CanBuildWorkshop) ? Building[BuildingIDs.Workshop].max_level : 0); Workshop++) {
 
+                                                //Max Check
+                                                if (Workshop > VillageBuild_Guess.Max_Workshop)
+                                                    break;
+
                                                 //Building Check
                                                 if (Building[BuildingIDs.Workshop].Total_Res_Table[Workshop] > WarehouseLimit[Warehouse])
                                                     break;
@@ -362,8 +427,12 @@ namespace TWToolKit {
 
                                                 /*
                                                  * Statue
-                                                 */ 
+                                                 */
                                                 for (int Statue = VillageBuild_Guess.Statue; Statue <= Building[BuildingIDs.Statue].max_level; Statue++) {
+
+                                                    //Max Check
+                                                    if (Statue > VillageBuild_Guess.Max_Statue)
+                                                        break;
                                                     
                                                     //Building Check
                                                     if (Building[BuildingIDs.Statue].Total_Res_Table[Statue] > WarehouseLimit[Warehouse])
@@ -381,8 +450,12 @@ namespace TWToolKit {
 
                                                     /*
                                                      * Camp
-                                                     */ 
+                                                     */
                                                     for (int TimberCamp = VillageBuild_Guess.Camp; TimberCamp <= Building[BuildingIDs.Camp].max_level; TimberCamp++) {
+
+                                                        //Max Check
+                                                        if (TimberCamp > VillageBuild_Guess.Max_Camp)
+                                                            break;
 
                                                         //Building Check
                                                         if (Building[BuildingIDs.Camp].Total_Res_Table[TimberCamp] > WarehouseLimit[Warehouse])
@@ -403,6 +476,12 @@ namespace TWToolKit {
                                                          */ 
                                                         for (int ClayPit = VillageBuild_Guess.Pit; ClayPit <= Building[BuildingIDs.Pit].max_level; ClayPit++) {
 
+                                                            //Resource Variance Check
+                                                            if (ClayPit < TimberCamp - Resource_Variance)
+                                                                break;
+                                                            else if (ClayPit > TimberCamp + Resource_Variance)
+                                                                break;
+
                                                             //Warehouse Check
                                                             if (Building[BuildingIDs.Pit].Total_Res_Table[ClayPit] > WarehouseLimit[Warehouse])
                                                                 break;
@@ -421,6 +500,12 @@ namespace TWToolKit {
                                                              * Mine
                                                              */ 
                                                             for (int IronMine = VillageBuild_Guess.Mine; IronMine <= Building[BuildingIDs.Mine].max_level; IronMine++) {
+
+                                                                //Resource Variance Check
+                                                                if (IronMine < ClayPit - Resource_Variance)
+                                                                    break;
+                                                                else if (IronMine > ClayPit + Resource_Variance)
+                                                                    break;
 
                                                                 //Warehouse Check
                                                                 if (Building[BuildingIDs.Mine].Total_Res_Table[IronMine] > WarehouseLimit[Warehouse])
@@ -479,7 +564,7 @@ namespace TWToolKit {
                                                                         if (Cur_Farm_Wall > FarmLimit[Farm])
                                                                             break;
 
-                                                                        if (Cur_Farm_Wall == Points_To_Parse) {
+                                                                        if (Cur_Points_Wall == Points_To_Parse) {
                                                                             SetText((Count++).ToString());
 
                                                                             Form1.VillageBuildings Guessed_Build = new Form1.VillageBuildings();
@@ -528,6 +613,15 @@ namespace TWToolKit {
             fs.Close();
 
             SetPercent(31);
+        }
+
+        private void chkStableForce_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e) {
+            AboutBuildGuesser nForm = new AboutBuildGuesser();
+            nForm.Show();
         }
     }
 }

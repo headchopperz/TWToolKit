@@ -39,6 +39,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMatches = new System.Windows.Forms.TextBox();
             this.btnProcess = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtVariance = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.chkStableForce = new System.Windows.Forms.CheckBox();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOpenVB
@@ -46,7 +51,7 @@
             this.btnOpenVB.Font = new System.Drawing.Font("Lucida Fax", 10.25F, System.Drawing.FontStyle.Bold);
             this.btnOpenVB.Location = new System.Drawing.Point(12, 7);
             this.btnOpenVB.Name = "btnOpenVB";
-            this.btnOpenVB.Size = new System.Drawing.Size(512, 38);
+            this.btnOpenVB.Size = new System.Drawing.Size(268, 38);
             this.btnOpenVB.TabIndex = 0;
             this.btnOpenVB.Text = "Set Minimum Buildings";
             this.btnOpenVB.UseVisualStyleBackColor = true;
@@ -54,7 +59,7 @@
             // 
             // pgrLoop
             // 
-            this.pgrLoop.Location = new System.Drawing.Point(12, 170);
+            this.pgrLoop.Location = new System.Drawing.Point(12, 240);
             this.pgrLoop.Maximum = 31;
             this.pgrLoop.Name = "pgrLoop";
             this.pgrLoop.Size = new System.Drawing.Size(512, 50);
@@ -63,7 +68,7 @@
             // btnReturn
             // 
             this.btnReturn.Font = new System.Drawing.Font("Lucida Fax", 15.25F, System.Drawing.FontStyle.Bold);
-            this.btnReturn.Location = new System.Drawing.Point(12, 226);
+            this.btnReturn.Location = new System.Drawing.Point(12, 296);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(244, 52);
             this.btnReturn.TabIndex = 2;
@@ -139,7 +144,7 @@
             // btnProcess
             // 
             this.btnProcess.Font = new System.Drawing.Font("Lucida Fax", 15.25F, System.Drawing.FontStyle.Bold);
-            this.btnProcess.Location = new System.Drawing.Point(286, 226);
+            this.btnProcess.Location = new System.Drawing.Point(286, 296);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(238, 52);
             this.btnProcess.TabIndex = 10;
@@ -147,11 +152,67 @@
             this.btnProcess.UseVisualStyleBackColor = true;
             this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lucida Fax", 15.25F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(12, 165);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(222, 24);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Resource Variance:";
+            // 
+            // txtVariance
+            // 
+            this.txtVariance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVariance.Location = new System.Drawing.Point(240, 162);
+            this.txtVariance.Name = "txtVariance";
+            this.txtVariance.Size = new System.Drawing.Size(284, 31);
+            this.txtVariance.TabIndex = 11;
+            this.txtVariance.Text = "20";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Lucida Fax", 15.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(12, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(451, 24);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Force Stable to be Lower than Barracks:";
+            // 
+            // chkStableForce
+            // 
+            this.chkStableForce.AutoSize = true;
+            this.chkStableForce.Font = new System.Drawing.Font("Lucida Fax", 25.25F, System.Drawing.FontStyle.Bold);
+            this.chkStableForce.Location = new System.Drawing.Point(470, 207);
+            this.chkStableForce.Name = "chkStableForce";
+            this.chkStableForce.Size = new System.Drawing.Size(15, 14);
+            this.chkStableForce.TabIndex = 15;
+            this.chkStableForce.UseVisualStyleBackColor = true;
+            this.chkStableForce.CheckedChanged += new System.EventHandler(this.chkStableForce_CheckedChanged);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Font = new System.Drawing.Font("Lucida Fax", 10.25F, System.Drawing.FontStyle.Bold);
+            this.btnAbout.Location = new System.Drawing.Point(286, 7);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(238, 38);
+            this.btnAbout.TabIndex = 16;
+            this.btnAbout.Text = "About";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
             // BuildingGuesser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 283);
+            this.ClientSize = new System.Drawing.Size(536, 360);
+            this.Controls.Add(this.btnAbout);
+            this.Controls.Add(this.chkStableForce);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtVariance);
             this.Controls.Add(this.btnProcess);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMatches);
@@ -186,5 +247,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMatches;
         private System.Windows.Forms.Button btnProcess;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtVariance;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox chkStableForce;
+        private System.Windows.Forms.Button btnAbout;
     }
 }

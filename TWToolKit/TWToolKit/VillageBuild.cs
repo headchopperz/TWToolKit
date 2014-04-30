@@ -90,6 +90,25 @@ namespace TWToolKit {
             tmp_Build.Hiding = Int32.Parse(txtHiding.Text);
             tmp_Build.Wall = Int32.Parse(txtWall.Text);
 
+            tmp_Build.Max_HQ = Int32.Parse(txtHQMax.Text);
+            tmp_Build.Max_Barracks = Int32.Parse(txtBarracksMax.Text);
+            tmp_Build.Max_Stable = Int32.Parse(txtStableMax.Text);
+            tmp_Build.Max_Workshop = Int32.Parse(txtWorkshopMax.Text);
+            tmp_Build.Max_Church = Int32.Parse(txtChurchMax.Text);
+            tmp_Build.Max_Church_f = Int32.Parse(txtChurch_FMax.Text);
+            tmp_Build.Max_Academy = Int32.Parse(txtAcademyMax.Text);
+            tmp_Build.Max_Smithy = Int32.Parse(txtSmithyMax.Text);
+            tmp_Build.Max_Rally = Int32.Parse(txtRallyMax.Text);
+            tmp_Build.Max_Statue = Int32.Parse(txtStatueMax.Text);
+            tmp_Build.Max_Market = Int32.Parse(txtMarketMax.Text);
+            tmp_Build.Max_Camp = Int32.Parse(txtWoodMax.Text);
+            tmp_Build.Max_Pit = Int32.Parse(txtClayMax.Text);
+            tmp_Build.Max_Mine = Int32.Parse(txtIronMax.Text);
+            tmp_Build.Max_Farm = Int32.Parse(txtFarmMax.Text);
+            tmp_Build.Max_Warehouse = Int32.Parse(txtStorageMax.Text);
+            tmp_Build.Max_Hiding = Int32.Parse(txtHidingMax.Text);
+            tmp_Build.Max_Wall = Int32.Parse(txtWallMax.Text);
+
 
             if (Parent_VD_Form != null) {
                 Parent_VD_Form.parseBuildingData(Type);
